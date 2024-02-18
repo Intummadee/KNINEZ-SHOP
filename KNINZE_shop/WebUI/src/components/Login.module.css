@@ -1,0 +1,82 @@
+:root {
+  --orange: #ff9a81;
+  --lightorange: #F9C2AD;
+  --yellow: #F2C898;
+  --pink: #E0A2C9;
+  --lightpink: #F5E1ED;
+  --green: #77BCC3;
+  --lightgreen: #C6E4E4;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+input[type="button"] {
+    border: none;
+    background: var(--lightorange);
+    color: white;
+    padding: 5px;
+    margin: 8px;
+    font-size: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    align-items: stretch;
+}
+
+.mainContainer {
+    flex-direction: column;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-color: var(--lightgreen);
+    font-family: 'Mitr';
+  }
+  
+  .title {
+    display: flex;
+    font-size: 64px;
+    font-weight: bolder;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+    color: var(--orange);
+  }
+ 
+  
+  .inputContainer {
+    width: 400px;
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 10px;
+    align-self: center;
+  }
+
+  .inputContainer .inputButton {
+    align-self: center;
+  }
+  .errorLabel {
+    color: red;
+    font-size: 15px;
+    justify-content: flex-start;
+    padding: 0px 0px 10px 10px;
+  }
+  
+  .inputBox {
+    height: 40px;
+    align-items: stretch;
+    font-size: 20px;
+    border-radius: 8px;
+    border: 2px solid var(--green);
+    padding-left: 8px;
+    margin: 0px 8px;
+  }

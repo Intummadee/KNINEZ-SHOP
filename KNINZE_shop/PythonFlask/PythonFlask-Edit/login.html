@@ -1,0 +1,65 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <h2 class="title is-2 has-text-centered mt-3">ระบบจัดการโปรโมชัน</h2>
+    <div class="container">
+    <div id="login-container">
+        <div class="field">
+        <label class="label" for="username">ชื่อผู้ใช้ </label>
+        <input class="input is-hovered is-info" type="text" id="username">
+        </div>
+        <div class="field">
+        <label class="label" for="password">รหัสผ่าน </label>
+        <input class="input is-hovered is-info" type="password" id="password">
+        </div>
+        <div class="field">
+        <button class="button is-primary has-text-centered" onclick="login()">เข้าสู่ระบบ</button>
+        </div>
+    </div>
+</div>
+    <script>
+        // JavaScript code
+        async function login() {
+            const username = document.getElementById('username').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const response = await fetch('http://localhost:5000/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({
+                        username: username,
+                        password: password,
+                    }),
+                });
+
+                const data = await response.json();
+
+                if (response.ok) {
+                    // Login successful
+                    console.log('Login successful');
+                    window.location.href = 'index.html';
+                } else {
+                    // Login failed
+                    console.error('Login failed:', data.message);
+                }
+            } catch (error) {
+                console.error('Error during login:', error);
+            }
+        }
+    </script>
+
+</body>
+
+</html>

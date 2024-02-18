@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Your React App</title>
+</head>
+<body>
+    <h1>ระบบคำนวณยอดขาย</h1>
+
+    <form id="dataForm">
+        <label for="findDate">Enter Date:</label>
+        <input type="text" id="findDate" name="findDate" required>
+        <button type="submit">Submit</button>
+    </form>
+    <button id="myButton" class="float-left submit-button" >Home</button>
+    <div id="result"></div>
+
+
+    <!-- ผลลัพธ์สำหรับเดือนและปี -->
+    <div id="resultMonth"></div>
+
+    <script>
+            document.getElementById("myButton").onclick = function () {
+        location.href = "index.html";
+    };
+        document.getElementById('dataForm').addEventListener('submit', function (event) {
+            event.preventDefault();
+
+            const findDate = document.getElementById('findDate').value;
+            fetchData(findDate);
+        });
+
+                // ฟอร์มสำหรับเดือนและปี
+        document.getElementById('dataFormMonth').addEventListener('submit', function (event) {
+            event.preventDefault();
+            const findMonth = document.getElementById('findMonth').value;
+            fetchData(findMonth, 'resultMonth');
+        });
+
+        async function fetchData(findDate) {
+            try {
+                const response = await fetch(`http://localhost:3000/date/${findDate}`);
+                const result = await response.json();
+
+                // แสดงผลลัพธ์ที่ได้ใน element ที่มี id เท่ากับ 'result'
+                document.getElementById('result').innerHTML = JSON.stringify(result, null, 2);
+            } catch (error) {
+                console.error('Error fetching data:', error);
+            }
+        }
+
+        // async function fetchData(findParam, resultId) {
+        //     try {
+        //         const response = await fetch(`http://localhost:3000/month/${findParam}`);
+        //         const result = await response.json();
+
+        //         // แสดงผลลัพธ์ที่ได้ใน element ที่มี id เท่ากับ 'result'
+        //         document.getElementById(resultId).innerHTML = JSON.stringify(result, null, 2);
+        //     } catch (error) {
+        //         console.error('Error fetching data:', error);
+        //     }
+        // }
+    </script>
+</body>
+</html>

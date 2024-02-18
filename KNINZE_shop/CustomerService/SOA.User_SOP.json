@@ -1,0 +1,132 @@
+[{
+  "_id": {
+    "$oid": "6550852d2a0f852336a3b20b"
+  },
+  "username": "POG9",
+  "f_name": "Kittinan",
+  "l_name": "Charoensong",
+  "email": "pog9@gmail.com",
+  "password": "$2a$10$72X5V7wMntiVpgP7hxBFH.7VBwEZi/K0Vtw9K2pf/qcwRiX6e6h5e",
+  "phone": 123456789,
+  "role": "user",
+  "addressDetail": {
+    "address": "ABC",
+    "province": "abc",
+    "zipcode": "12345"
+  },
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "6550862dc4748a7ff9ceb544"
+  },
+  "username": "POG8",
+  "f_name": "Kittinan",
+  "l_name": "Charoensong",
+  "email": "pog8@gmail.com",
+  "password": "$2a$10$IcSYwkK1T7UxVCChgyhwCuPlGOaU03t7uwyc8ayQSBKUPXIzsdgqy",
+  "phone": 123456789,
+  "role": "user",
+  "addressDetail": {
+    "address": "ABC",
+    "province": "abc",
+    "zipcode": "12345"
+  },
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "65508b9f3004c86e33395167"
+  },
+  "username": "heyabaebey",
+  "f_name": "Saruta",
+  "l_name": "Jaroonkiratiroj",
+  "email": "heyabaebey@gmail.com",
+  "password": "$2a$10$oomFnuOMLqLWfxWHdiVi/ewFJ/k42XQ62yCaFoq0ATw1AQUjH18pS",
+  "phone": "0873360562",
+  "role": "user",
+  "addressDetail": {
+    "address": "กัลยรัตน์ 2",
+    "province": "กทม.",
+    "zipcode": "12345"
+  },
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "65508ea03004c86e33395168"
+  },
+  "username": "heyabaebey1",
+  "email": "heyabaebey1@gmail.com",
+  "password": "$2a$10$eYsXE9v8rNx0KWCDyyvHHutiUBBbmJvRQE15tCg7qpQIfr2tDnsTS",
+  "role": "user",
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "65509e2e3004c86e33395169"
+  },
+  "username": "baebey",
+  "email": "baebey@gmail.com",
+  "password": "$2a$10$PDKgxumEpzd/GoWFqVqRyeoi43jJ9yuzGqBlZB7BKL.OJtwsOL4MW",
+  "role": "user",
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "6550f3be1e89b5075ac110d2"
+  },
+  "username": "aibae",
+  "email": "aibae@gmail.com",
+  "password": "$2a$10$Or0AyYOzq3I8VPbkWo02h.LV0Zjyhxys6BG5VrbeoU1F8S0BpmKv.",
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "6550f4ef1e89b5075ac110d3"
+  },
+  "username": "hellobaebey",
+  "f_name": "hello",
+  "l_name": "baebey",
+  "email": "hellobaebey@gmail.com",
+  "password": "$2a$10$g5d54rJEFva33.LgC8ZKdul77dULnLY.bOkVq2UzF.Ap/5HTcbeAu",
+  "addressDetail": {
+    "address": "",
+    "province": "",
+    "zipcode": ""
+  },
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "6550f5101e89b5075ac110d4"
+  },
+  "username": "hellobaebey1",
+  "f_name": "hello",
+  "l_name": "baebey",
+  "email": "hellobaebey1@gmail.com",
+  "password": "$2a$10$790reNlUqjBFS5WOX4DPN.Lcv15rA4aoGJCZoyr9GSODhqPrWHhtu",
+  "addressDetail": {
+    "address": "หอกัลยรัตน์ 2 ลาดกระบังค้าบ",
+    "province": "กทม.",
+    "zipcode": "21150"
+  },
+  "_class": "com.example.demo.data.User"
+},
+{
+  "_id": {
+    "$oid": "6550f5c292747e0d7b4d965e"
+  },
+  "username": "hellobaebey2",
+  "f_name": "hello",
+  "l_name": "baebey",
+  "email": "hellobaebey2@gmail.com",
+  "password": "$2a$10$fzIAHaKaOvlDrjl9UUyFB.cl9WqjP.ccCbbVlM3uVMaUf8ZfhNNwS",
+  "phone": "0873360562",
+  "addressDetail": {
+    "address": "หอกัลยรัตน์ 2 ลาดกระบังค้าบ",
+    "province": "กทม.",
+    "zipcode": "21150"
+  },
+  "_class": "com.example.demo.data.User"
+}]

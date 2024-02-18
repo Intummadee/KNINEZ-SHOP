@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Frontend Example</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.4/css/bulma.min.css">
+</head>
+
+<body>
+    <div id="login-container">
+        <button class="button is-danger is-rounded is-pulled-right mt-2.5 mr-3" onclick="logout()">ออกจากระบบ</button>
+    </div>
+    <h2 class="title is-2 has-text-centered mt-3">ระบบจัดการโปรโมชัน</h2>
+
+<div class="container">
+    <div class="field">
+    <div id="data-container"></div>
+
+    </div>
+    <div class="field">
+        <label class="label" for="new-name">ชื่อโปรโมชั่น</label>
+        <input class="input is-hovered" type="text" id="new-name">
+    </div>
+    <div class="field">
+        <label class="label" for="new-description">รายละเอียด </label>
+        <input class="input is-hovered" type="text" id="new-description">
+    </div>
+    <div class="field">
+        <label class="label" for="new-count">จำนวนผู้ใช้งาน </label>
+        <input class="input is-hovered" type="number" id="new-count">
+    </div>
+    <div class="field">
+        <label class="label" for="new-exp">วันหมดอายุ </label>
+        <input class="input is-hovered" type="text" id="new-exp">
+    </div>
+    <div class="field">
+        <label class="label" for="new-discount">ส่วนลด </label>
+        <input class="input is-hovered" type="number" id="new-discount">
+    </div>
+    <div class="field">
+        <button class="button is-primary" onclick="addItem()">เพิ่มรายการ</button>
+    </div>
+
+</div>
+    <script>
+        // JavaScript code
+
+        function logout() {
+            fetch('http://localhost:5000/logout', {
+                method: 'GET',
+                credentials: 'include', // รวมคุกกี้เพื่อตรวจสอบสิทธิ์
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data.message);
+                    window.location.href = 'login.html';
+                })
+                .catch(error => console.error(error));
+        }
+
+        function fetchUserData() {
+            fetch('http://localhost:5000/user', {
+                method: 'GET',
+                credentials: 'include', // รวมคุกกี้เพื่อตรวจสอบสิทธิ์
+            })
+                .then(response => response.json())
+                .then(data => {
+                    console.log(data);
+                    // หากผู้ใช้ได้เข้าสู่ระบบ ให้แสดงข้อมูล
+                    if (data.user) {
+                        document.getElementById('login-container').style.display = 'none';
+                        document.getElementById('data-container').style.display = 'block';
+                        // ... (Your existing code to fetch and display data)
+                    }
+                })
+                .catch(error => console.error(error));
+        }
+
+
+        function fetchAndDisplayData() {
+            // ดึงข้อมูลจาก API และแสดงบนหน้าเว็บ
+            fetch('http://localhost:5000/api')
+                .then(response => response.json())
+                .then(data => {
+                    let tableHtml = '<table class="table">';
+                    data.forEach(item => {
+                        tableHtml += `<tr><td class="title is-4">${item.id}</td>
+                            <td ><input class="input is-primary" type="text" id="name-${item._id.$oid}" value="${item.name}"></td>
+                            <td ><input class="input is-primary" type="text" id="description-${item._id.$oid}" value="${item.description}"></td>
+                            <td ><input class="input is-primary" type="number" id="count-${item._id.$oid}" value="${item.count}"></td>
+                            <td ><input class="input is-primary" type="text" id="exp-${item._id.$oid}" value="${item.exp}"></td>
+                            <td ><input class="input is-primary" type="number" id="discount-${item._id.$oid}" value="${item.discount}"></td>
+
+                            <td><button class="button is-link" onclick="updateItem('${item._id.$oid}')">อัปเดต</button></td>
+                            <td><button class="button is-danger" onclick="deleteItem('${item._id.$oid}')">ลบ</button></td></tr>`;
+                    });
+                    tableHtml += '</table>';
+                    document.getElementById('data-container').innerHTML = tableHtml;
+                })
+                .catch(error => console.error(error));
+        }
+
+        function addItem() {
+            const description = document.getElementById('new-description').value;
+            const name = document.getElementById('new-name').value;
+            const exp = document.getElementById('new-exp').value;
+            const count = parseInt(document.getElementById('new-count').value, 10);
+            const discount = parseInt(document.getElementById('new-discount').value, 10);
+
+            // ส่งคำร้องขอ POST ไปยัง API เพื่อเพิ่มรายการใหม่
+            fetch('http://localhost:5000/api', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    description: description,
+                    count: count,
+                    name: name,
+                    exp: exp,
+                    discount: discount
+                }),
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // หลังจากเพิ่มรายการแล้ว ทำการดึงข้อมูลใหม่และแสดงบนหน้าเว็บ
+                    fetchAndDisplayData();
+                    // ล้างค่าในช่องข้อความหลังจากเพิ่มรายการเรียบร้อย
+                    document.getElementById('new-description').value = '';
+                    document.getElementById('new-count').value = '';
+                    document.getElementById('new-name').value = '';
+                    document.getElementById('new-exp').value = '';
+                    document.getElementById('new-discount').value = '';
+                })
+                .catch(error => console.error(error));
+        }
+
+        function updateItem(itemId) {
+            const newDescription = document.getElementById(`description-${itemId}`).value;
+            const newName = document.getElementById(`name-${itemId}`).value;
+            const newExp = document.getElementById(`exp-${itemId}`).value;
+            const newCount = parseInt(document.getElementById(`count-${itemId}`).value, 10);
+            const newDiscount = parseInt(document.getElementById(`discount-${itemId}`).value, 10);
+
+            fetch(`http://localhost:5000/api/${itemId}`, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({
+                    description: newDescription,
+                    count: newCount,
+                    name: newName,
+                    exp: newExp,
+                    discount: newDiscount
+                })
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // หลังจากอัปเดตรายการแล้ว ทำการดึงข้อมูลใหม่และแสดงบนหน้าเว็บ
+                    fetchAndDisplayData();
+                })
+                .catch(error => console.error(error));
+        }
+
+        function deleteItem(itemId) {
+            // ส่งคำร้องขอลบรายการไปยัง API โดยใช้ fetch
+            fetch(`http://localhost:5000/api/${itemId}`, {
+                method: 'DELETE',
+            })
+                .then(response => response.json())
+                .then(data => {
+                    // หลังจากลบรายการแล้ว ทำการดึงข้อมูลใหม่และแสดงบนหน้าเว็บ
+                    fetchAndDisplayData();
+                })
+                .catch(error => console.error(error));
+        }
+
+        // เรียกใช้ฟังก์ชันเพื่อดึงข้อมูลและแสดงบนหน้าเว็บเมื่อโหลดหน้าเว็บ
+        window.onload = fetchAndDisplayData, fetchUserData;
+    </script>
+
+</body>
+
+</html>

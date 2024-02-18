@@ -1,0 +1,36 @@
+[{
+  "_id": {
+    "$oid": "654d2da4a9a0ceb724cb8b2a"
+  },
+  "amount": 1,
+  "category": "เครื่องดื่ม",
+  "cost": 40,
+  "date": "2003-03-20",
+  "name": "coke",
+  "subcategory": "น้ำอัดลม",
+  "userName": "เอิน"
+},
+{
+  "_id": {
+    "$oid": "655170ee0403e34354eec2a3"
+  },
+  "amount": 1,
+  "category": "เครื่องดื่ม",
+  "cost": 40,
+  "date": "2003-03-15",
+  "name": "pepsi",
+  "subcategory": "น้ำอัดลม",
+  "userName": "เอิน"
+},
+{
+  "_id": {
+    "$oid": "655170fb0403e34354eec2a4"
+  },
+  "amount": 1,
+  "category": "เครื่องดื่ม",
+  "cost": 40,
+  "date": "2003-04-20",
+  "name": "sprite",
+  "subcategory": "น้ำอัดลม",
+  "userName": "เอิน"
+}]

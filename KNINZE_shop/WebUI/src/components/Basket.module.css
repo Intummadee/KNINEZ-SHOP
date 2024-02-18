@@ -1,0 +1,125 @@
+:root {
+  --orange: #ff9a81;
+  --lightorange: #F9C2AD;
+  --yellow: #F2C898;
+  --pink: #E0A2C9;
+  --lightpink: #F5E1ED;
+  --green: #77BCC3;
+  --lightgreen: #C6E4E4;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  /* background-color: var(--lightgreen); */
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+}
+
+* {
+  box-sizing: border-box;
+  font-family: 'Mitr';
+}
+
+.topNav {
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+}
+
+input[type="button"] {
+  border: none;
+  background: var(--green);
+  color: white;
+  padding: 10px;
+  margin: 8px;
+  font-size: 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  align-items: stretch;
+  width: 150px;
+}
+
+.mainContainer {
+  flex-direction: row;
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  padding:  100px 150px 50px 150px;
+/* margin-left: 10vw; */
+  min-height: max-content;
+  z-index: -100;
+  /* background-color: var(--lightgreen); */
+}
+
+.verifyOrder {
+  flex-direction: column;
+  display: flex;
+  padding: 10px;
+  margin: 30px 0px;
+  /* position: absolute; */
+  height: fit-content;
+  background-color: var(--lightpink);
+}
+
+.addressForm {
+  justify-content: center;
+  align-content: center;
+}
+
+.inputBox {
+  /* height: 40px; */
+  align-items: stretch;
+  width: 80%;
+  font-size: 14px;
+  border-radius: 4px;
+  border: 2px solid var(--pink);
+  padding-left: 8px;
+  margin: 0px 8px;
+}
+
+.iOrdered {
+  flex-direction: column;
+  display: flex;
+  justify-content: center;
+  width: 50vw;
+  padding: 10vw;
+  background-color: var(--yellow);
+  align-items: center;
+  padding:  5% 10%;
+}
+
+.box_order {
+  width: 100%;
+  justify-content: space-between;
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  border: 1px solid var(--orange);
+}
+
+img {
+  width: 150px;
+  /* padding: 10px; */
+  height: 150px;
+  border: 0.5px solid #DCDCDC;
+  border-radius: "20px";
+}
+
+.stickyCard {
+  position: fixed;
+  width: fit-content;
+
+  align-content: space-between;
+  margin-left: 60vw;
+  
+}
+
+.scrollable {
+/* overflow: scroll; */
+justify-self: flex-start;
+align-self: center;
+}

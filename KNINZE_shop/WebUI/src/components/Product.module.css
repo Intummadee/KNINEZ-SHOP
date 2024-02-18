@@ -1,0 +1,98 @@
+:root {
+  --orange: #ff9a81;
+  --lightorange: #F9C2AD;
+  --yellow: #F2C898;
+  --pink: #E0A2C9;
+  --lightpink: #F5E1ED;
+  --green: #77BCC3;
+  --lightgreen: #C6E4E4;
+}
+
+html,
+body {
+  padding: 0;
+  margin: 0;
+  /* font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu, Cantarell,
+    Fira Sans, Droid Sans, Helvetica Neue, sans-serif; */
+}
+
+* {
+  box-sizing: border-box;
+}
+
+.topNav {
+  z-index: 1000;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: column;
+  
+}
+
+
+.mainContainer {
+  flex-direction: column;
+  display: flex;
+  position: static;
+  align-items: center;
+  justify-content: center;
+  min-height:max-content;
+  background-color: var(--lightgreen);
+}
+
+.findProduct {
+  /* display: flex; */
+  align-items: flex-start;
+  justify-content:flex-start;
+  /* justify-content:center; */
+  position: fixed;
+  background-color: var(--lightgreen);
+  width: 100vw;
+  height: max-content;
+  padding: 30px 0px;
+  top: -30px;
+  /* top: 85px; */
+  /* z-index: 1000; */
+}
+
+.catLabel {
+  display: flex;
+  /* background-color: var(--yellow); */
+  justify-content: flex-start;
+  width: 80%;
+  font-size: 32px;
+  padding: 40px 20px 0px 140px;
+}
+
+.allProducts {
+  /* display:contents; */
+
+  flex-direction: column;
+  /* background-color: var(--green); */
+  justify-content: center;
+  /* vertical-align: top; */
+  width: 90%;
+  margin-top: 200px;
+  /* z-index: -1; */
+}
+
+.eachRow {
+  display: flex;
+  flex-direction: row;
+  /* background-color: var(--lightorange); */
+  justify-content: center;
+  width: 100%;
+  padding: 30px 20px;
+}
+
+.eachProduct {
+  /* display: flex; */
+  flex-direction: column;
+  /* background-color: var(--lightpink); */
+  width: 100%;
+  padding-left: 11%;
+}
+
+Card {
+  justify-content: center;
+}
